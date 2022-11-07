@@ -7,8 +7,7 @@ import Button from "./components/UI/Button/Button";
 
 function App() {
   const [show, setShow] = useState(false);
-  const [letshow, setLetShow] = useState(false);
-  const [count, setCont] = useState(25);
+  const [letShow, setLetShow] = useState(false);
 
   console.log("app");
 
@@ -17,8 +16,8 @@ function App() {
   };
 
   const demoHandler = useCallback(() => {
+    // предотвращения ненужных рендеров useCallback вернёт мемоизированную версию колбэка который изменяется только, если изменяются значения одной из зависимостей
     setLetShow((prevState) => !prevState);
-    setCont((prevState) => prevState + 1);
   }, []);
 
   // const user = {
@@ -27,15 +26,19 @@ function App() {
   // }
 
   const user = useMemo(() => {
+    // (object) озгорбосо анда render болбойт
+    console.log("usememo is working");
     return {
       name: "alina",
-      age: count,
+      age: 21,
     };
-  }, [count]);
+  }, []);
 
   return (
     <div className="app">
-      <h1>Hi there!</h1>
+      <h1 id="inner" className="innerclass">
+        Hi there!
+      </h1>
       {show && <p>This is new</p>}
       <Button onClick={showHandler}>Click me</Button>
       <DemoList />

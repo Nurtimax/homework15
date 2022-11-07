@@ -1,7 +1,7 @@
 import React from "react";
 
 const DemoList = () => {
-  console.log('demolist');
+  console.log("demolist");
   return (
     <div>
       <ul>
@@ -13,4 +13,4 @@ const DemoList = () => {
   );
 };
 
-export default React.memo(DemoList);
+export default React.memo(DemoList); // бул качан state  озгоргондо rendering болот // app  компонентин ичинде demo дагы rendering болот бизге бул нерсе кереги жок ошол учун memo ну колдонобуз
